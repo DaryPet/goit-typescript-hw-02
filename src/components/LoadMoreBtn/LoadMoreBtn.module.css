@@ -1,0 +1,12 @@
+.btn {
+  color: azure;
+  background-color: rgb(192, 124, 194);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin: 0 auto;
+  display: block;
+}
+.btn:hover {
+  background-color: rgb(137, 16, 142);
+  box-shadow: 0 4px 8px rgba(69, 69, 68, 0.8); /* добавляем тень при наведении */
+  transform: scale(1.05);
+}

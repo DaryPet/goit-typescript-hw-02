@@ -1,0 +1,32 @@
+.wrap {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background-color: blueviolet;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 700;
+}
+.input {
+  height: 30px;
+  width: 178px;
+  padding: 4px;
+  border-radius: 8px;
+  margin-right: 24px;
+  display: block;
+  margin: 0 auto 12px auto;
+}
+.btn {
+  color: azure;
+  background-color: rgb(192, 124, 194);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: block;
+  margin: 0 auto;
+}
+.btn:hover {
+  background-color: rgb(137, 16, 142);
+  box-shadow: 0 4px 8px rgba(219, 235, 114, 0.8); /* добавляем тень при наведении */
+  transform: scale(1.05);
+}
