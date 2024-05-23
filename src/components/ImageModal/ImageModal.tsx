@@ -1,7 +1,7 @@
 import Modal from "react-modal";
 import css from "./ImageModal.module.css";
 
-const customStyles = {
+const customStyles: Modal.Styles = {
   overlay: {
     position: "fixed",
     backgroundColor: "rgba(0, 0, 0, 0.75)",
@@ -17,17 +17,22 @@ const customStyles = {
     alignItems: "center",
   },
 };
+interface ImageModalProps{
+  imageUrl: string | null,
+  onClose: ()=> void
+}
 
-export default function ImageModal({ imageUrl, onClose }) {
+const ImageModal: React.FC<ImageModalProps> = ({ imageUrl, onClose }) => {
   return (
     <Modal
       isOpen={!!imageUrl}
       onRequestClose={onClose}
       contentLabel="Image Modal"
       style={customStyles}
+      appElement={document.getElementById('root')!}
     >
-      {/* {imageUrl && <img src={imageUrl} alt="Image" />} */}
-      <img className={css.modal} src={imageUrl} alt="Modal" />
+      <img className={css.modal} src={imageUrl || ""} alt="Modal" />
     </Modal>
   );
 }
+export default ImageModal

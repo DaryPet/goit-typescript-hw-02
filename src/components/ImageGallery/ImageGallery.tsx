@@ -4,7 +4,7 @@ import css from "./ImageGallery.module.css";
 
 interface ImageGalleryProps{
   items: Image[],
-  onImageClick: (imageUrl:string )=> void
+  onImageClick: (imageUrl: string) => void;
 }
 
 const ImageGallery: React.FC <ImageGalleryProps> = ({ items, onImageClick }) => {
@@ -14,9 +14,9 @@ const ImageGallery: React.FC <ImageGalleryProps> = ({ items, onImageClick }) => 
         return (
           <li key={item.id}>
             <ImageCard
-              url={item.url}
+              urls={item.urls}
               alt_description={item.alt_description}
-              onClick={()=>onImageClick(item.url.full)}
+              onClick={onImageClick}
             />
           </li>
         );

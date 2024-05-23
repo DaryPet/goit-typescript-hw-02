@@ -1,7 +1,8 @@
 import { RotatingLines } from "react-loader-spinner";
 import css from "./Loader.module.css";
+// import { boolean } from "yup";
 
-export default function LoaderComponent() {
+const LoaderComponent: React.FC =()=> {
   return (
     <div className={css.loader}>
       <RotatingLines
@@ -18,3 +19,4 @@ export default function LoaderComponent() {
     </div>
   );
 }
+export default LoaderComponent;

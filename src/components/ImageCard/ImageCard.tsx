@@ -4,24 +4,25 @@ import { Image } from "../../types";
 
 interface ImageCardProps {
   alt_description: string,
-  url: {
+  urls: {
     small: string,
     full: string
   }
   onClick: (url: string)=> void
 }
 
-const ImageCard:React.FC<ImageCardProps> = ({ alt_description, url, onClick }) => {
-  const [isHover, setIsHover] = useState(false);
+
+const ImageCard: React.FC<ImageCardProps> = ({ alt_description, urls, onClick }) => {
+  const [isHover, setIsHover] = useState<boolean>(false);
   
   return (
     <div
       className={css.container}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
-      onClick={() => onClick(url.full)}
+      onClick={ ()=> onClick(urls.full)}
     >
-      <img className={css.img} src={url.small} alt={alt_description} />
+      <img className={css.img} src={urls.small} alt={alt_description} />
       {isHover && <p className={css.description}>{alt_description}</p>}
     </div>
   );
