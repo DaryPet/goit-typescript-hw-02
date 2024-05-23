@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { Image } from "./types";
 
 const ACCESS_KEY = "keROiOoPRBTtA2JzYYy0OQCIs0O0YyVlgTqdL-9q8Pc";
@@ -9,7 +9,7 @@ interface FetchImageResponse {
 }
 
 export const fetchImage = async (searchQuery:string, currentPage:number): Promise<FetchImageResponse> => {
-  const response = await axios.get("/search/photos", {
+  const response: AxiosResponse<FetchImageResponse> = await axios.get("/search/photos", {
     params: {
       client_id: ACCESS_KEY,
       query: searchQuery,
