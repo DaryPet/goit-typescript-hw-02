@@ -1,9 +1,17 @@
 import toast, { Toaster } from "react-hot-toast";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, FormikHelpers } from "formik";
 import css from "./SearchBar.module.css";
 
-export default function SearchBar({ onSearch }) {
-  const onSubmitBar = async (values, actions) => {
+interface FormValues{
+  query: string
+}
+
+interface SearchBarProps {
+  onSearch: (query:string) => void
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+  const onSubmitBar = async (values: FormValues, actions: FormikHelpers<FormValues>) => {
     if (!values.query.trim()) {
       toast.error("Sorry, input is empty. Please try again!");
       return;
@@ -11,6 +19,7 @@ export default function SearchBar({ onSearch }) {
     onSearch(values.query);
     actions.resetForm();
   };
+
 
   return (
     <div>
@@ -33,3 +42,4 @@ export default function SearchBar({ onSearch }) {
     </div>
   );
 }
+export default SearchBar;
